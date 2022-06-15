@@ -1,19 +1,24 @@
 <template>
   <div class="events">
     <h1>Events for Good</h1>
-
-    <div v-if="$route.query !== {}">
-      <div v-for="(val, ind) in $route.query"> {{ ind + " : " + val }}</div>
-    </div>
-    --
-    <div v-show="query !== {}">
-      <span v-for="(val, prop) in query">{{ prop + "=>" + val + " |" }}</span>
-    </div>
-    <div>
-      {{ queryString }}
-    </div>
-
     <EventCard v-for="event in events" :key="event.id" :event="event" />
+
+    <div class="pagination">
+      <router-link
+        id="page-prev"
+        :to="{name : 'events', query : {page : page - 1}}"
+        v-if="page != 1"
+        rel="prev"
+      >&#60; Previous
+      </router-link>
+
+      <router-link
+        id="page-next"
+        :to="{name : 'events', query : {page : page + 1}}"      
+        v-if="hasNextPage"
+        rel="prev"
+      >Next &#62;</router-link>
+    </div>
   </div>
 </template>
 
@@ -21,31 +26,34 @@
 // @ is an alias to /src
 import EventCard from "@/components/EventCard.vue";
 import EventService from "@/services/EventService";
+import { watchEffect } from "vue";
 
 export default {
   name: "EventList",
   components: {
     EventCard,
   },
-  props: ["query"],
+  props: ["page"],
   data() {
     return {
       events: null,
+      totalEvents : 0,
     };
   },
   created() {
-    EventService.getEvents()
-      .then((response) => {
-        this.events = response.data;
-      })
-      .catch((error) => console.log(error));
+    watchEffect(() => {
+      this.events =null;
+      EventService.getEvents(2, this.page)
+        .then((response) => {
+          this.events = response.data;
+          this.totalEvents = response.headers['x-total-count']
+        })
+        .catch((error) => console.log(error));
+    });
   },
   computed: {
-    queryString() {
-      var arr = [];
-      for (let p in this.query)
-        arr.push(p + "=>" + this.query[p]);
-      return arr.toString("-")
+    hasNextPage() {
+      return this.page < Math.ceil(this.totalEvents / 2)
     }
   }
 };
@@ -56,5 +64,22 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.pagination {
+  display: flex;
+  width : 290px;
+}
+.pagination a {
+  flex: 1;
+  text-decoration: none;
+  color : #2c3e50
+}
+
+#page-prev {
+  text-align: left;
+}
+#page-next {
+  text-align: right;
 }
 </style>

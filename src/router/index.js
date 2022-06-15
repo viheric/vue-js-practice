@@ -13,7 +13,7 @@ const routes = [
       b: route.query.b || null,
       big_salary: route.query.big_salary || null,
     })*/
-    props: (route) => ({ query: route.query })
+    props: (route) => ({ page: parseInt(route.query.page) || 1 })
   },
   {
     path: "/event/:id",
