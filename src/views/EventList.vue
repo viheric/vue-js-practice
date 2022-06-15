@@ -1,6 +1,18 @@
 <template>
   <div class="events">
     <h1>Events for Good</h1>
+
+    <div v-if="$route.query !== {}">
+      <div v-for="(val, ind) in $route.query"> {{ ind + " : " + val }}</div>
+    </div>
+    --
+    <div v-show="query !== {}">
+      <span v-for="(val, prop) in query">{{ prop + "=>" + val + " |" }}</span>
+    </div>
+    <div>
+      {{ queryString }}
+    </div>
+
     <EventCard v-for="event in events" :key="event.id" :event="event" />
   </div>
 </template>
@@ -15,6 +27,7 @@ export default {
   components: {
     EventCard,
   },
+  props: ["query"],
   data() {
     return {
       events: null,
@@ -27,6 +40,14 @@ export default {
       })
       .catch((error) => console.log(error));
   },
+  computed: {
+    queryString() {
+      var arr = [];
+      for (let p in this.query)
+        arr.push(p + "=>" + this.query[p]);
+      return arr.toString("-")
+    }
+  }
 };
 </script>
 

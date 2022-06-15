@@ -8,6 +8,12 @@ const routes = [
     path: "/",
     name: "events",
     component: EventList,
+    /*props: (route) => ({
+      e: route.query.e || '',
+      b: route.query.b || null,
+      big_salary: route.query.big_salary || null,
+    })*/
+    props: (route) => ({ query: route.query })
   },
   {
     path: "/event/:id",
