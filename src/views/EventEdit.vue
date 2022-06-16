@@ -8,8 +8,7 @@
       <router-link :to="{ name: 'EventEdit' }">Edit</router-link>
     </div>
 
-    <span>@ {{ event.time }} on {{ event.date }}</span>
-    <p>{{ event.description }}</p>
+    <p>Edit the event</p>
   </div>
 </template>
 
@@ -22,11 +21,10 @@ export default {
   data() {
     return {
       event: null,
-      ind: 8,
     };
   },
   created() {
-    EventService.getEvent(this.id)
+    EventService.getEvent(2)
       .then((response) => (this.event = response.data))
       .catch((error) => {
         console.log(error);

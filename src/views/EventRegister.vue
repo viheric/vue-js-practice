@@ -8,8 +8,7 @@
       <router-link :to="{ name: 'EventEdit' }">Edit</router-link>
     </div>
 
-    <span>@ {{ event.time }} on {{ event.date }}</span>
-    <p>{{ event.description }}</p>
+    <p>Register to the event</p>
   </div>
 </template>
 
@@ -22,7 +21,6 @@ export default {
   data() {
     return {
       event: null,
-      ind: 8,
     };
   },
   created() {

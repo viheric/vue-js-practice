@@ -1,12 +1,14 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import EventList from "../views/EventList.vue";
 import EventDetails from "../views/EventDetails.vue";
+import EventRegister from "../views/EventRegister.vue";
+import EventEdit from "../views/EventEdit.vue";
 import About from "../views/AboutView.vue";
 
 const routes = [
   {
     path: "/",
-    name: "events",
+    name: "EventList",
     component: EventList,
     /*props: (route) => ({
       e: route.query.e || '',
@@ -18,8 +20,20 @@ const routes = [
   {
     path: "/event/:id",
     name: "EventDetails",
-    props: true,
+    props: (route) => ({ id:route.params.id, ind : route.params.id}),
     component: EventDetails,
+  },
+  {
+    path: "/event/:id/register",
+    name: "EventRegister",
+    props: true,
+    component: EventRegister,
+  },
+  {
+    path: "/event/:id/edit",
+    name: "EventEdit",
+    props: true,
+    component: EventEdit,
   },
   {
     path: "/about",
