@@ -1,8 +1,9 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import EventList from "../views/EventList.vue";
-import EventDetails from "../views/EventDetails.vue";
-import EventRegister from "../views/EventRegister.vue";
-import EventEdit from "../views/EventEdit.vue";
+import EventLayout from "../views/event/Layout.vue";
+import EventDetails from "../views/event/Details.vue";
+import EventRegister from "../views/event/Register.vue";
+import EventEdit from "../views/event/Edit.vue";
 import About from "../views/AboutView.vue";
 
 const routes = [
@@ -10,30 +11,30 @@ const routes = [
     path: "/",
     name: "EventList",
     component: EventList,
-    /*props: (route) => ({
-      e: route.query.e || '',
-      b: route.query.b || null,
-      big_salary: route.query.big_salary || null,
-    })*/
     props: (route) => ({ page: parseInt(route.query.page) || 1 })
   },
   {
     path: "/event/:id",
-    name: "EventDetails",
-    props: (route) => ({ id:route.params.id, ind : route.params.id}),
-    component: EventDetails,
-  },
-  {
-    path: "/event/:id/register",
-    name: "EventRegister",
+    name: "EventLayout",
     props: true,
-    component: EventRegister,
-  },
-  {
-    path: "/event/:id/edit",
-    name: "EventEdit",
-    props: true,
-    component: EventEdit,
+    component: EventLayout,
+    children: [
+      {
+        path: '',
+        name: "EventDetails",
+        component: EventDetails,
+      },
+      {
+        path: "register",
+        name: "EventRegister",
+        component: EventRegister,
+      },
+      {
+        path: "edit",
+        name: "EventEdit",
+        component: EventEdit,
+      },
+    ]
   },
   {
     path: "/about",

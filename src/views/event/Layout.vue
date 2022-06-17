@@ -2,13 +2,13 @@
   <div v-if="event" class="event-details">
     <h1>{{ event.title }}</h1>
 
-    <div>
+    <div id="nav">
       <router-link :to="{ name: 'EventDetails' }">Details</router-link> |
       <router-link :to="{ name: 'EventRegister' }">Register</router-link> |
       <router-link :to="{ name: 'EventEdit' }">Edit</router-link>
     </div>
 
-    <p>Edit the event</p>
+    <router-view :event="event" />
   </div>
 </template>
 
@@ -21,10 +21,11 @@ export default {
   data() {
     return {
       event: null,
+      ind: 8,
     };
   },
   created() {
-    EventService.getEvent(2)
+    EventService.getEvent(this.id)
       .then((response) => (this.event = response.data))
       .catch((error) => {
         console.log(error);
