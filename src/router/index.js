@@ -14,7 +14,7 @@ const routes = [
     props: (route) => ({ page: parseInt(route.query.page) || 1 })
   },
   {
-    path: "/event/:id",
+    path: "/events/:id",
     name: "EventLayout",
     props: true,
     component: EventLayout,
@@ -37,6 +37,21 @@ const routes = [
     ]
   },
   {
+    path: '/event/:afterEvent(.*)',
+    redirect: to => ({ path: '/events/' + to.params.afterEvent })
+  },
+
+  /*
+  {
+    path: '/event/:id',
+    redirect: { name: 'EventDetails' },
+    children: [
+      { path: 'register', redirect: { name: 'EventRegister' } },
+      { path: 'edit', redirect: { name: 'EventEdit' } }
+    ]
+  },
+  */
+  {
     path: "/about",
     name: "about",
     component: About,
@@ -45,7 +60,14 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     //component: () =>
     // import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+
+    //alias:'/about-us'
   },
+  {
+    path: "/about-us",
+    name: "about-us",
+    redirect: { name: "about" }
+  }
 ];
 
 const router = createRouter({
