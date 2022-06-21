@@ -7,6 +7,10 @@ import EventEdit from "../views/event/Edit.vue";
 import About from "../views/AboutView.vue";
 import NotFound from "../views/NotFound.vue";
 import NetworkError from "../views/NetworkError.vue";
+import NProgress from "nprogress";
+import EventService from "@/services/EventService";
+import GStore from "@/store";
+
 
 const routes = [
   {
@@ -20,6 +24,19 @@ const routes = [
     name: "EventLayout",
     props: true,
     component: EventLayout,
+    beforeEnter: function (to) {
+      return EventService.getEvent(to.params.id)
+        .then((response) => {
+          GStore.event = response.data
+        })
+        .catch((error) => {
+          if (error.response && error.response.status === 404) {
+            return { name: '404Resource', params: { resource: 'event' } }
+          } else {
+            return { name: 'NetworkError' }
+          }
+        });
+    },
     children: [
       {
         path: '',
@@ -78,13 +95,13 @@ const routes = [
   {
     path: '/404/:resource',
     name: '404Resource',
-    props : true,
+    props: true,
     component: NotFound
   },
   {
     path: '/network-error',
     name: 'NetworkError',
-    props : true,
+    props: true,
     component: NetworkError
   }
 ];
@@ -92,6 +109,13 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
+});
+
+router.beforeEach(() => {
+  NProgress.start()
+});
+router.afterEach(() => {
+  NProgress.done()
 });
 
 export default router;

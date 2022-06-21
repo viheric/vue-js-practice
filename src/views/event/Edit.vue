@@ -24,7 +24,7 @@ export default {
   }*/
   //Using Vue 3 to implement the above code
   beforeRouteLeave() {
-    console.log("beforeRouteLeave with Vue 3");
+    //console.log("beforeRouteLeave with Vue 3");
     if (this.unsavedChanges) {
       /*const answer = window.confirm('Are sure you want to leave this page ?')
       if (!answer) {
