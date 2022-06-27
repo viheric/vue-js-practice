@@ -1,10 +1,10 @@
 <template>
   <router-link
-    :to="{ name: 'EventDetails', params: { id: event.id } }"
     class="event-link"
+    :to="{ name: 'EventDetails', params: { id: event.id } }"
   >
     <div class="event-card">
-      <span>@ {{ event.time }} on {{ event.date }}</span>
+      <span>@{{ event.time }} on {{ event.date }}</span>
       <h4>{{ event.title }}</h4>
     </div>
   </router-link>
@@ -12,17 +12,15 @@
 
 <script>
 export default {
-  //name: "EventCard",
   props: {
     event: {
       type: Object,
-      required: true,
-    },
-  },
+      required: true
+    }
+  }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .event-card {
   padding: 20px;
@@ -32,13 +30,13 @@ export default {
   margin-bottom: 18px;
 }
 
-.event-link {
-  color: #2c3e50;
-  text-decoration: none;
-}
-
 .event-card:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+}
+
+.event-link {
+  color: #2c3e50;
+  text-decoration: none;
 }
 </style>
