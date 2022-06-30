@@ -3,6 +3,7 @@ import EventList from '@/views/EventList.vue'
 import EventDetails from '@/views/EventDetails.vue'
 import EventCreate from '@/views/EventCreate.vue'
 import About from '@/views/About.vue'
+import ErrorDisplay from '@/views/ErrorDisplay.vue';
 
 const routes = [
   {
@@ -25,7 +26,13 @@ const routes = [
     path: '/about',
     name: 'About',
     component: About
-  }
+  },
+  {
+    path: '/error/:error',
+    name: 'ErrorDisplay',
+    props: true,
+    component: ErrorDisplay
+  },
 ]
 
 const router = createRouter({

@@ -49,6 +49,126 @@
       "date": "01/06/2022",
       "time": "7AM",
       "organizer": "Eric AKAKPO"
+    },
+    {
+      "id": "a59a72a2-7436-43dd-b09e-3ba37004ad9b",
+      "category": "housing",
+      "title": "SOMMMM",
+      "description": "DESCR",
+      "location": "Lome",
+      "date": "21/06/2022",
+      "time": "9AM",
+      "organizer": "Eric AKAKPO"
+    },
+    {
+      "id": "77385977-c919-4da3-b681-05ac89f83af8",
+      "category": "",
+      "title": "Smoothies day",
+      "description": "Green smoothies for good health",
+      "location": "Paris",
+      "date": "12/12/2022",
+      "time": "7AM",
+      "organizer": "Eric AKAKPO"
+    },
+    {
+      "id": "af4835ab-62b2-4573-ab4f-4d46f4c48625",
+      "category": "housing",
+      "title": "Architect Digest",
+      "description": "Visit famouse artists house",
+      "location": "London",
+      "date": "Sept 12, 2022",
+      "time": "9AM",
+      "organizer": "Eric AKAKPO"
+    },
+    {
+      "id": "8edcceeb-9b03-4994-b28a-7ca7bdf5bf85",
+      "category": "food",
+      "title": "FOOOOOOOOOOOD",
+      "description": "fooo ooooo oooo oooood",
+      "location": "FO",
+      "date": "12/08/2022",
+      "time": "9PM",
+      "organizer": "Eric AKAKPO"
+    },
+    {
+      "id": "5c906aff-aad2-4447-a009-59d5e1119d26",
+      "category": "education",
+      "title": "EDUUUUUUU",
+      "description": "Eduu uuu u u uuuu u uu uuu u uuuuuuuuu",
+      "location": "Eduuu",
+      "date": "March 11, 2023",
+      "time": "5PM",
+      "organizer": "Eric AKAKPO"
+    },
+    {
+      "id": "31c5c964-c311-4c1c-8497-bc47f29e7b33",
+      "category": "nature",
+      "title": "NAAAAAAAAA",
+      "description": "NA qsaaaa aa ",
+      "location": "NAAAN",
+      "date": "15/12/2021",
+      "time": "8pm",
+      "organizer": "Eric AKAKPO"
+    },
+    {
+      "id": "e0d8802b-bd8f-4db2-be47-4e5a18b3a0eb",
+      "category": "nature",
+      "title": "Natural MOON",
+      "description": "mooooooo oo n",
+      "location": "Monipolis",
+      "date": "11/12/2023",
+      "time": "7PM",
+      "organizer": "Eric AKAKPO"
+    },
+    {
+      "id": "34fe57ed-a57c-448f-9717-831c2246c3f9",
+      "category": "sustainability",
+      "title": "Contribution Day",
+      "description": "Contribute to Events for Good",
+      "location": "Tokyo",
+      "date": "12/12/2022",
+      "time": "9AM",
+      "organizer": "Eric AKAKPO"
+    },
+    {
+      "id": "a0d9a059-e9bc-4294-8c18-e3ee1b6d6dd4",
+      "category": "animal welfare",
+      "title": "CAFAROL",
+      "description": "cafarlo",
+      "location": "California",
+      "date": "01/05/2025",
+      "time": "5AM",
+      "organizer": "Eric AKAKPO"
+    },
+    {
+      "id": "c1f030b2-b027-4004-8d35-1ffc8b7a46f2",
+      "category": "nature",
+      "title": "KKKKKKKKK",
+      "description": "Eric Akakpo",
+      "location": "Aklakou",
+      "date": "05/05/2021",
+      "time": "7PM",
+      "organizer": "Eric AKAKPO"
+    },
+    {
+      "id": "d63c149d-c778-4a40-a95c-1245fc1e79be",
+      "category": "education",
+      "title": "HHHHHH",
+      "description": "hhh hhhhhhhhhhh ",
+      "location": "Hilton",
+      "date": "4/2/2021",
+      "time": "9AM",
+      "organizer": "Eric AKAKPO"
+    },
+    {
+      "id": "2d704852-2d3c-48ae-b26b-ffbed6946b44",
+      "category": "nature",
+      "title": "ULTIMIATE EVENT",
+      "description": "Ultimate",
+      "location": "Uruguay",
+      "date": "12/2/2023",
+      "time": "8PM",
+      "organizer": "Eric AKAKPO"
     }
   ]
 }

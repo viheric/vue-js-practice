@@ -7,25 +7,25 @@
 
 <script>
 import EventCard from '@/components/EventCard.vue'
-import EventService from '@/services/EventService.js'
+
 export default {
   name: 'EventList',
   components: {
     EventCard
   },
-  data() {
-    return {
-      events: null
-    }
-  },
   created() {
-    EventService.getEvents()
-      .then(response => {
-        this.events = response.data
-      })
+    this.$store.dispatch('fetchEvents')
       .catch(error => {
-        console.log(error)
+        this.$router.push({
+          name: 'ErrorDisplay',
+          params: { error: error }
+        })
       })
+  },
+  computed: {
+    events() {
+      return this.$store.state.events
+    }
   }
 }
 </script>

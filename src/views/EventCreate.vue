@@ -39,7 +39,6 @@
 
 <script>
 import { v4 as uuidv4 } from "uuid"
-import EventService from '@/services/EventService.js'
 
 export default {
   data() {
@@ -69,18 +68,22 @@ export default {
     onSubmit() {
       const event = {
         ...this.event,
-        id : uuidv4(),
-        organizer : this.$store.state.user
+        id: uuidv4(),
+        organizer: this.$store.state.user
       }
-      //this.event.id = uuidv4()
-      //this.event.organizer = this.$store.state.user
-      EventService
-        .postEvent(event)
+
+      this.$store.dispatch('createEvent', event)
         .then(() => {
-          this.$store.commit('ADD_EVENT', event)
+          this.$router.push({
+            name: 'EventDetails',
+            params: { id: event.id }
+          })
         })
         .catch(error => {
-
+          this.$router.push({
+            name: 'ErrorDisplay',
+            params: { error: error }
+          })
         })
     }
   }
